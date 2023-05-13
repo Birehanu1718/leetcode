@@ -1,0 +1,28 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+int n = 70000;
+        int arr[] = new int[n];
+        int sum = 0;
+        int hsum=0;
+
+        for (int i = 0; i < nums.length; i++) {
+            sum=sum+ nums[i];
+            int index;
+            if(nums[i]<=0 ){
+                index = Math.abs(nums[i])+30000;
+            }
+            else{
+                 index = nums[i];
+            }
+
+            if (!( arr[index]==1) ) {
+                hsum= hsum+nums[i];
+                arr[index]=1;
+            }
+
+
+        }
+        int num=(2*hsum)-sum;
+        return num;
+    }
+}
